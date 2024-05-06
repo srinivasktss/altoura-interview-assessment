@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Login
 {
@@ -17,6 +18,8 @@ namespace Login
             {
                 _fieldValidator.Validate(loginFields);
                 _credentialValidator.Validate(loginFields);
+
+                SceneManager.LoadScene("HomeScene");
             }
             catch(Exception e)
             {
