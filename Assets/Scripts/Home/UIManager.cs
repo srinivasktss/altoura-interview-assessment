@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -62,7 +63,7 @@ namespace Home
             _project2AssetLoader.LoadAsset<GameObject>((gameObject) =>
             {
                 _project2Button.interactable = true;
-                Instantiate(gameObject);
+                SceneManager.LoadScene("Project2");
             });
         }
     }

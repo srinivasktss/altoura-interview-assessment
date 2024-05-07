@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Project2
 {
@@ -34,7 +35,10 @@ namespace Project2
                 return;
 
             if (_currentActiveStepIndex == 0 && !next)
+            {
+                SceneManager.LoadScene("HomeScene");
                 return;
+            }
 
             ProceedStep(false, _steps[_currentActiveStepIndex]);
             ChangeStepIndex(next);
