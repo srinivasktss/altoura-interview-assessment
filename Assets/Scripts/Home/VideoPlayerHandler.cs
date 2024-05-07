@@ -18,6 +18,11 @@ namespace Home
             _videPlayer.targetTexture = _videoRenderTexture;
         }
 
+        public void SetVideoClip(VideoClip clip)
+        {
+            _videPlayer.clip = clip;
+        }
+
         public void OnClickPlayOrPause()
         {
             PlayOrPauseVideo();

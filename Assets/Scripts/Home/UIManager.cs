@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace Home
 {
@@ -8,6 +9,11 @@ namespace Home
     {
         [SerializeField] private GameObject _projectListPanel;
         [SerializeField] private GameObject _videoPanel;
+        [SerializeField] private VideoPlayerHandler _videoPlayerHandler;
+
+        [Header("Asser Loaders")]
+        [SerializeField] private AssetLoader _project1AssetLoader;
+        [SerializeField] private AssetLoader _project2AssetLoader;
 
         private void Awake()
         {
@@ -28,7 +34,29 @@ namespace Home
 
         public void OnClickProject1Button()
         {
-            ShowVideoPanel();
+            LoadProject1Asset();
+        }
+
+        public void OnClickProject2Button()
+        {
+            LoadProject2Asset();
+        }
+
+        private void LoadProject1Asset()
+        {
+            _project1AssetLoader.LoadAsset<VideoClip>((videoClip) =>
+            {
+                _videoPlayerHandler.SetVideoClip(videoClip);
+                ShowVideoPanel();
+            });
+        }
+
+        private void LoadProject2Asset()
+        {
+            _project2AssetLoader.LoadAsset<GameObject>((gameObject) =>
+            {
+                Instantiate(gameObject);
+            });
         }
     }
 }
