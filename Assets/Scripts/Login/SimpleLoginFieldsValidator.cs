@@ -7,17 +7,19 @@ namespace Login
 {
     public class SimpleLoginFieldsValidator : AbstractLoginFieldsValidator
     {
-        public override void Validate(LoginFields loginFields)
+        public override bool Validate(LoginFields loginFields)
         {
             if(loginFields == null)
             {
-                throw new Exception("LoginField is null");
+                return false;
             }
 
             if(string.IsNullOrEmpty(loginFields.UserName) || string.IsNullOrEmpty(loginFields.Password))
             {
-                throw new Exception("Not a valid credentials");
+                return false;
             }
+
+            return true;
         }
     }
 }

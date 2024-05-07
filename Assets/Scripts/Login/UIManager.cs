@@ -38,18 +38,23 @@ namespace Login
         {
             try
             {
-                _loginManager.DoLogin(_fields);
+                if(!_loginManager.DoLogin(_fields))
+                {
+                    SetLoginButtonInteractable(true);
+                    ShowErrorDialogActive();
+                }
             }
             catch(Exception e)
             {
                 Debug.LogException(e);
                 SetLoginButtonInteractable(true);
-                ShowErrorDialogActive();
+                ShowErrorDialogActive(true, 2f, "Someting went wrong...");
             }
         }
 
-        private void ShowErrorDialogActive(bool hideInDelay = true, float delayTime = 2f)
+        private void ShowErrorDialogActive(bool hideInDelay = true, float delayTime = 2f, string message = "Invalid Credentials")
         {
+            _errorMessage.text = message;
             _errorMessage.gameObject.SetActive(true);
             if(hideInDelay)
             {

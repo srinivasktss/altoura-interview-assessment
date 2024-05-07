@@ -9,32 +9,32 @@ namespace Login
     {
         [SerializeField] private List<LoginFields> _fieldsDB = new List<LoginFields>();
 
-        public override void Validate(LoginFields fields)
+        public override bool Validate(LoginFields fields)
         {
             if(fields == null)
             {
-                throw new Exception("Field is null");
+                return false;
             }
 
             if(string.IsNullOrEmpty(fields.UserName) || string.IsNullOrEmpty(fields.Password))
             {
-                throw new Exception("Invalid Credentials");
+                return false;
             }
 
-            CheckCredentials(fields);
+            return CheckCredentials(fields);
         }
 
-        private void CheckCredentials(LoginFields fields)
+        private bool CheckCredentials(LoginFields fields)
         {
             foreach(LoginFields field in _fieldsDB)
             {
                 if(field.Equals(fields))
                 {
-                    return;
+                    return true;
                 }
             }
 
-            throw new Exception("Wrong Credentials");
+            return false;
         }
     }
 }

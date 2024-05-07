@@ -12,14 +12,20 @@ namespace Login
         [SerializeField] private AbstractCredentialValidator _credentialValidator;
         [SerializeField] private UIManager _uiManager;
 
-        public void DoLogin(LoginFields loginFields)
+        public bool DoLogin(LoginFields loginFields)
         {
             try
             {
-                _fieldValidator.Validate(loginFields);
-                _credentialValidator.Validate(loginFields);
+                if(_fieldValidator.Validate(loginFields))
+                {
+                    if(_credentialValidator.Validate(loginFields))
+                    {
+                        SceneManager.LoadScene("HomeScene");
+                        return true;
+                    }
+                }
 
-                SceneManager.LoadScene("HomeScene");
+                return false;
             }
             catch(Exception e)
             {

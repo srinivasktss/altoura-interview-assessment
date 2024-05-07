@@ -6,6 +6,6 @@ namespace Login
 {
     public abstract class AbstractCredentialValidator : MonoBehaviour
     {
-        public abstract void Validate(LoginFields fields);
+        public abstract bool Validate(LoginFields fields);
     }
 }
