@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 130552930}
   - component: {fileID: 130552929}
   m_Layer: 5
-  m_Name: project_2
+  m_Name: project_2_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,6 +745,8 @@ MonoBehaviour:
   _projectListPanel: {fileID: 1154848758}
   _videoPanel: {fileID: 1241860975}
   _videoPlayerHandler: {fileID: 174037686}
+  _project1Button: {fileID: 1738538321}
+  _project2Button: {fileID: 130552929}
   _project1AssetLoader: {fileID: 1641073316}
   _project2AssetLoader: {fileID: 591210625}
 --- !u!1 &402286439
@@ -1987,7 +1989,7 @@ GameObject:
   - component: {fileID: 1738538322}
   - component: {fileID: 1738538321}
   m_Layer: 5
-  m_Name: project_1
+  m_Name: project_1_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

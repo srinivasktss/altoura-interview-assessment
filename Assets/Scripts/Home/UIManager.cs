@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Home
@@ -10,6 +11,8 @@ namespace Home
         [SerializeField] private GameObject _projectListPanel;
         [SerializeField] private GameObject _videoPanel;
         [SerializeField] private VideoPlayerHandler _videoPlayerHandler;
+        [SerializeField] private Button _project1Button;
+        [SerializeField] private Button _project2Button;
 
         [Header("Asser Loaders")]
         [SerializeField] private AssetLoader _project1AssetLoader;
@@ -44,8 +47,10 @@ namespace Home
 
         private void LoadProject1Asset()
         {
+            _project1Button.interactable = false;
             _project1AssetLoader.LoadAsset<VideoClip>((videoClip) =>
             {
+                _project1Button.interactable = true;
                 _videoPlayerHandler.SetVideoClip(videoClip);
                 ShowVideoPanel();
             });
@@ -53,8 +58,10 @@ namespace Home
 
         private void LoadProject2Asset()
         {
+            _project2Button.interactable = false;
             _project2AssetLoader.LoadAsset<GameObject>((gameObject) =>
             {
+                _project2Button.interactable = true;
                 Instantiate(gameObject);
             });
         }
