@@ -63,6 +63,7 @@ namespace Home
             _project2AssetLoader.LoadAsset<GameObject>((gameObject) =>
             {
                 _project2Button.interactable = true;
+                AssetsHolder.Instance.SetProject2Asset(gameObject);
                 SceneManager.LoadScene("Project2");
             });
         }
