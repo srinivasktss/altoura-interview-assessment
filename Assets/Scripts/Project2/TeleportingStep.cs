@@ -28,16 +28,16 @@ namespace Project2
         {
             DOTween.Sequence()
                 .Insert(0, _transitionCanvasGroup.DOFade(1f, 0.1f))
-                .Insert(1, _playerTransform.DOMoveZ(_platformPosition2.position.z, 1f))
-                .Insert(1, _transitionCanvasGroup.DOFade(0, 0.5f));
+                .Insert(1, _playerTransform.DOMoveZ(_platformPosition2.position.z, 0f))
+                .Insert(1, _transitionCanvasGroup.DOFade(0, 0.1f));
         }
 
         public override void CloseStep()
         {
             DOTween.Sequence()
                 .Insert(0, _transitionCanvasGroup.DOFade(1f, 0.1f))
-                .Insert(1, _playerTransform.DOMoveZ(_platformPosition1.position.z, 1f))
-                .Insert(1, _transitionCanvasGroup.DOFade(0, 0.5f));
+                .Insert(1, _playerTransform.DOMoveZ(_platformPosition1.position.z, 0f))
+                .Insert(1, _transitionCanvasGroup.DOFade(0, 0.1f));
         }
     }
 }

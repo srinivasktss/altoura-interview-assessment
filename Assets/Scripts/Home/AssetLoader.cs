@@ -43,11 +43,10 @@ namespace Home
 
         private void OnDestroy()
         {
-            if(_handle.IsValid())
+            /*if (_handle.IsValid())
             {
                 _assetReference.ReleaseAsset();
-            }
-            
+            }*/
         }
     }
 }
